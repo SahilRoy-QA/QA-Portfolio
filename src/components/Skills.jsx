@@ -3,11 +3,10 @@ import "./Skills.css";
 
 function SkillCard({ icon, label, color }) {
   return (
-    <div
-      className="skill-card"
-      style={{ "--card-accent": color }}
-    >
-      <span className="skill-card__icon" aria-hidden="true">{icon}</span>
+    <div className="skill-card" style={{ "--card-accent": color }}>
+      <span className="skill-card__icon" aria-hidden="true">
+        {icon}
+      </span>
       <span className="skill-card__label">{label}</span>
     </div>
   );

@@ -3,9 +3,9 @@ import { NAV_LINKS } from "../data";
 import "./Navbar.css";
 
 export default function Navbar() {
-  const [scrolled, setScrolled]   = useState(false);
-  const [active,   setActive]     = useState("Home");
-  const [menuOpen, setMenuOpen]   = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState("Home");
+  const [menuOpen, setMenuOpen] = useState(false);
 
   /* Shrink nav on scroll */
   useEffect(() => {
@@ -24,7 +24,9 @@ export default function Navbar() {
   return (
     <nav className={`navbar ${scrolled ? "navbar--scrolled" : ""}`}>
       {/* Logo */}
-      <div className="navbar__logo" aria-label="Sahil Roy">SR</div>
+      <div className="navbar__logo" aria-label="Sahil Roy">
+        QA Engineer
+      </div>
 
       {/* Desktop links */}
       <ul className="navbar__links" role="list">
@@ -46,7 +48,9 @@ export default function Navbar() {
         onClick={() => setMenuOpen((p) => !p)}
         aria-label="Toggle menu"
       >
-        <span /><span /><span />
+        <span />
+        <span />
+        <span />
       </button>
 
       {/* Mobile drawer */}

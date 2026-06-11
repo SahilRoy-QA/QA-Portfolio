@@ -6,7 +6,7 @@ export default function Achievements() {
     <section className="section" id="achievements">
       <p className="eyebrow">Milestones</p>
       <h2 className="section-heading">Achievements</h2>
-      <p className="section-desc">Driving Quality & Innovation.</p>
+      <p className="section-desc">Key Milestones.</p>
 
       {/* Achievement banner */}
       <div className="achievement">

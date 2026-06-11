@@ -12,21 +12,21 @@ export const NAV_LINKS = [
 
 export const HERO = {
   name: "Sahil Roy",
-  title: "Test Engineer II | QA & Automation Specialist",
+  title: "Test Engineer II | QA Manual Tester",
   bio: "Detail-oriented Software Tester with experience in manual and automation testing across enterprise applications. Skilled in test case design, defect tracking, and testing complex modules — focused on delivering high-quality software.",
 };
 
 export const SKILLS = [
   { label: "Core Java", icon: "☕", color: "#f89820" },
-  { label: "Python", icon: "🐍", color: "#ffd343" },
-  { label: "Selenium", icon: "🟢", color: "#43b02a" },
+  { label: "Python (Basic)", icon: "🐍", color: "#ffd343" },
+  // { label: "Selenium", icon: "🟢", color: "#43b02a" },
   { label: "Playwright", icon: "🎭", color: "#45ba4b" },
   { label: "Manual Testing", icon: "🔍", color: "#00b4d8" },
   { label: "Functional Testing", icon: "✅", color: "#34d399" },
   { label: "Regression Testing", icon: "🔁", color: "#a78bfa" },
   { label: "Smoke & Sanity", icon: "💨", color: "#f472b6" },
   { label: "Ad-hoc Testing", icon: "🎯", color: "#fb923c" },
-  { label: "Cross-browser", icon: "🌐", color: "#60a5fa" },
+  { label: "Cross-browser Testing", icon: "🌐", color: "#60a5fa" },
   { label: "IntelliJ IDEA", icon: "🛠", color: "#00b4d8" },
   { label: "VS Code", icon: "💻", color: "#007acc" },
 ];

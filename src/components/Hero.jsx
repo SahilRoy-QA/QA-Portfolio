@@ -12,22 +12,40 @@ function OrbitGraphic() {
     >
       <defs>
         <linearGradient id="orbitGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%"   stopColor="#00e5ff" />
+          <stop offset="0%" stopColor="#00e5ff" />
           <stop offset="100%" stopColor="#7c3aed" />
         </linearGradient>
       </defs>
       {[0, 60, 120].map((deg) => (
-        <ellipse key={deg} cx="200" cy="200" rx="158" ry="68"
-          fill="none" stroke="url(#orbitGrad)" strokeWidth="2.2" opacity="0.88"
-          transform={`rotate(${deg} 200 200)`} />
+        <ellipse
+          key={deg}
+          cx="200"
+          cy="200"
+          rx="158"
+          ry="68"
+          fill="none"
+          stroke="url(#orbitGrad)"
+          strokeWidth="2.2"
+          opacity="0.88"
+          transform={`rotate(${deg} 200 200)`}
+        />
       ))}
       {[30, 90, 150].map((deg) => (
-        <ellipse key={`g${deg}`} cx="200" cy="200" rx="118" ry="50"
-          fill="none" stroke="#00e5ff" strokeWidth="1" opacity="0.22"
-          transform={`rotate(${deg} 200 200)`} />
+        <ellipse
+          key={`g${deg}`}
+          cx="200"
+          cy="200"
+          rx="118"
+          ry="50"
+          fill="none"
+          stroke="#00e5ff"
+          strokeWidth="1"
+          opacity="0.22"
+          transform={`rotate(${deg} 200 200)`}
+        />
       ))}
       <circle cx="200" cy="200" r="10" fill="#00e5ff" opacity="0.55" />
-      <circle cx="200" cy="200" r="5"  fill="#fff"    opacity="0.9"  />
+      <circle cx="200" cy="200" r="5" fill="#fff" opacity="0.9" />
     </svg>
   );
 }
@@ -49,8 +67,14 @@ export default function Hero() {
 
         {/* CTAs */}
         <div className="hero__cta-row">
-          <a href="#projects" className="btn btn--primary">View Projects</a>
-          <a href="/resume.pdf" className="btn btn--outline" download>
+          <a href="#projects" className="btn btn--primary">
+            View Projects
+          </a>
+          <a
+            href="https://drive.google.com/file/d/1TDAi-5c2178hXUyrF8B4d9xA5s6ru8p5/view?usp=drive_link"
+            className="btn btn--outline"
+            download
+          >
             Download Resume
           </a>
         </div>
