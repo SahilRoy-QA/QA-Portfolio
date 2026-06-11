@@ -1,0 +1,93 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  gap: 56px;
+  padding: 100px 64px 72px;
+  flex-wrap: wrap;
+}
+
+/* Left */
+.hero__left   { flex: 1 1 360px; max-width: 540px; }
+.hero__name   {
+  font-size: clamp(3rem, 7vw, 5rem);
+  font-weight: 900;
+  color: var(--text-primary);
+  letter-spacing: -2px;
+  line-height: 1.05;
+  margin: 8px 0 6px;
+}
+.hero__title  {
+  font-size: 18px;
+  color: var(--text-accent);
+  font-weight: 500;
+  margin-bottom: 28px;
+}
+
+/* Bio card */
+.hero__bio {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-cyan);
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+  margin-bottom: 32px;
+}
+.hero__avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-sm);
+  border: 2px solid rgba(0, 229, 255, 0.35);
+  object-fit: cover;
+  object-position: center top;
+  flex-shrink: 0;
+}
+.hero__bio-text {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* CTAs */
+.hero__cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 26px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.15s, opacity 0.15s;
+}
+.btn:hover  { opacity: 0.88; transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+
+.btn--primary  { background: var(--cyan);          color: #020917; border: none; }
+.btn--outline  { background: transparent; color: var(--text-primary); border: 1.5px solid #2d3f56; }
+
+/* Right */
+.hero__right {
+  flex: 1 1 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.orbit {
+  width: min(360px, 90vw);
+  height: min(360px, 90vw);
+  filter: drop-shadow(0 0 36px rgba(0, 229, 255, 0.3));
+}
+
+@media (max-width: 768px) {
+  .hero { padding: 96px 24px 56px; gap: 32px; }
+  .hero__right { order: -1; }
+  .orbit { width: 220px; height: 220px; }
+}

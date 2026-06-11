@@ -1,0 +1,53 @@
+.exp-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.exp-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--cyan);
+  border-radius: var(--radius-md);
+  padding: 24px 28px;
+  transition: background 0.2s;
+}
+.exp-card:hover { background: var(--bg-card); }
+
+.exp-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.exp-card__role    { font-size: 17px; font-weight: 700; color: var(--text-primary); }
+.exp-card__company { font-size: 14px; color: var(--cyan); font-weight: 500; margin-top: 2px; }
+.exp-card__period  {
+  font-size: 12px;
+  color: var(--text-muted);
+  white-space: nowrap;
+  background: rgba(255,255,255,0.05);
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+}
+
+.exp-card__bullets { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.exp-card__bullet  {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  padding-left: 16px;
+  position: relative;
+}
+.exp-card__bullet::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--cyan);
+  font-size: 10px;
+  top: 4px;
+}
