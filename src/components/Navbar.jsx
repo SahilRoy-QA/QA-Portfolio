@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { NAV_LINKS } from "../data";
 import "./Navbar.css";
+import ExperienceTimer from "./ExperienceTimer";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -25,7 +26,7 @@ export default function Navbar() {
     <nav className={`navbar ${scrolled ? "navbar--scrolled" : ""}`}>
       {/* Logo */}
       <div className="navbar__logo" aria-label="Sahil Roy">
-        QA Engineer
+        <ExperienceTimer />
       </div>
 
       {/* Desktop links */}

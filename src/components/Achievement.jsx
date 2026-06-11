@@ -14,8 +14,17 @@ export default function Achievements() {
           🏆
         </div>
         <div className="achievement__body">
-          <p className="achievement__title">{ACHIEVEMENT.title}</p>
-          <p className="achievement__desc">{ACHIEVEMENT.description}</p>
+          <p className="achievement__title">{ACHIEVEMENT.title1}</p>
+          <p className="achievement__desc">{ACHIEVEMENT.description1}</p>
+        </div>
+      </div>
+      <div className="achievement">
+        <div className="achievement__icon" aria-hidden="true">
+          🏆
+        </div>
+        <div className="achievement__body">
+          <p className="achievement__title">{ACHIEVEMENT.title2}</p>
+          <p className="achievement__desc">{ACHIEVEMENT.description2}</p>
         </div>
       </div>
     </section>

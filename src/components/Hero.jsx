@@ -55,13 +55,12 @@ export default function Hero() {
     <section className="hero" id="home">
       {/* ── Left column ── */}
       <div className="hero__left">
-        <p className="eyebrow">Software Tester · QA Specialist</p>
+        {/* <p className="eyebrow">Software Tester · QA Specialist</p> */}
         <h1 className="hero__name">{HERO.name}</h1>
         <p className="hero__title">{HERO.title}</p>
 
         {/* Bio card */}
         <div className="hero__bio">
-          <img src={avatarImg} alt="Sahil Roy" className="hero__avatar" />
           <p className="hero__bio-text">{HERO.bio}</p>
         </div>
 
@@ -82,7 +81,7 @@ export default function Hero() {
 
       {/* ── Right column ── */}
       <div className="hero__right">
-        <OrbitGraphic />
+        <img src={avatarImg} alt="Sahil Roy" className="hero__avatar" />
       </div>
     </section>
   );

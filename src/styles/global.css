@@ -1,35 +1,47 @@
 /* ── Global CSS ──────────────────────────────────────────── */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap");
 
 /* Design tokens */
 :root {
-  --cyan:       #00e5ff;
-  --cyan-dim:   rgba(0, 229, 255, 0.12);
-  --purple:     #7c3aed;
-  --bg-base:    #020917;
+  --cyan: #00e5ff;
+  --cyan-dim: rgba(0, 229, 255, 0.12);
+  --purple: #7c3aed;
+  --bg-base: #020917;
   --bg-surface: rgba(255, 255, 255, 0.03);
-  --bg-card:    rgba(255, 255, 255, 0.05);
-  --border:     rgba(255, 255, 255, 0.08);
+  --bg-card: rgba(255, 255, 255, 0.05);
+  --border: rgba(255, 255, 255, 0.08);
   --border-cyan: rgba(0, 229, 255, 0.18);
-  --text-primary:   #f0f9ff;
+  --text-primary: #f0f9ff;
   --text-secondary: #94a3b8;
-  --text-muted:     #475569;
-  --text-accent:    #7dd3fc;
-  --radius-sm:  8px;
-  --radius-md:  12px;
-  --radius-lg:  16px;
+  --text-muted: #475569;
+  --text-accent: #7dd3fc;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
   --section-pad: 88px 64px;
 }
 
 /* Reset */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
-  font-family: 'Inter', 'Segoe UI', sans-serif;
-  background: radial-gradient(ellipse at 70% 0%, #0d1b3e 0%, var(--bg-base) 55%);
+  font-family: "Inter", "Segoe UI", sans-serif;
+  background: radial-gradient(
+    ellipse at 70% 0%,
+    #0d1b3e 0%,
+    var(--bg-base) 55%
+  );
   background-attachment: fixed;
   color: var(--text-primary);
   line-height: 1.6;
@@ -70,5 +82,7 @@ body {
 
 /* Responsive */
 @media (max-width: 768px) {
-  :root { --section-pad: 56px 24px; }
+  :root {
+    --section-pad: 56px 24px;
+  }
 }

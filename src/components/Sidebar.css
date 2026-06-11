@@ -1,0 +1,87 @@
+/* Sidebar Container */
+.sidebar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 250px;
+  background-color: #112240;
+  border-right: 1px solid #233554;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Brand / Logo */
+.sidebar-brand {
+  color: #00e5ff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-decoration: none;
+  margin-bottom: 3rem;
+  letter-spacing: 1px;
+}
+
+.sidebar-brand span {
+  color: #ccd6f6;
+  font-size: 1rem;
+  display: block;
+  font-weight: 400;
+  margin-top: 0.2rem;
+  opacity: 0.8;
+}
+
+/* Navigation Links */
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sidebar-link {
+  color: #ccd6f6;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sidebar-link:hover {
+  color: #00e5ff;
+  transform: translateX(5px);
+}
+
+/* Mobile Toggle Button */
+.mobile-toggle {
+  display: none;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1001;
+  background-color: #112240;
+  border: 1px solid #00e5ff;
+  color: #00e5ff;
+  padding: 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+  .mobile-toggle {
+    display: block;
+  }
+
+  .sidebar-container {
+    transform: translateX(-100%);
+  }
+
+  .sidebar-container.open {
+    transform: translateX(0);
+  }
+}

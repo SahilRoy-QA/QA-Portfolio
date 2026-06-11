@@ -7,6 +7,7 @@ export const NAV_LINKS = [
   "Experience",
   "Projects",
   "Education",
+  "Achievements",
   "Contact",
 ];
 
@@ -100,6 +101,22 @@ export const PROJECTS = [
     stack: ["Schema Testing", "CRUD Validation", "Regression Testing"],
     accent: "#f472b6",
   },
+  {
+    title: "TxAnalytics",
+    tag: "Module",
+    description:
+      "Tested cross-departmental data synchronization, custom dashboard personalization, and metric accuracy within the Tx Analytics module. Validated dynamic data visualization and real-time refresh logic under various concurrency and load conditions.",
+    stack: ["Data Validation", "Performance Testing", "Cross-browser"],
+    accent: "#daf562",
+  },
+  {
+    title: "Extraction",
+    tag: "Module",
+    description:
+      "Tested report generation, export, and filtering capabilities, ensuring accuracy and consistency across different report formats and data conditions.",
+    stack: ["Data Validation", "Performance Testing", "Cross-browser"],
+    accent: "#fbbf24",
+  },
 ];
 
 export const EDUCATION = [
@@ -112,14 +129,18 @@ export const EDUCATION = [
 ];
 
 export const ACHIEVEMENT = {
-  title: "Employee of the Month",
-  description:
-    "Recognized for detecting 50+ defects in a single module, including 15 high-priority, high-severity issues — significantly enhancing system reliability and reducing production risks.",
+  title1: "Employee of the Month",
+  description1:
+    "Recognized for detecting 180+ defects in a single module, including 15 high-priority, high-severity issues — significantly enhancing system reliability and reducing production risks.",
+
+  title2: "Isolated 20+ High-Priority Defects",
+  description2:
+    "Successfully identified over 20 critical bugs before release. Directly contributed to enhanced software stability and was recognized for exceptional attention to detail in edge-case scenarios.",
 };
 
 export const CONTACT = {
   email: "roysahil579@gmail.com",
   phone: "+91 9163006574",
   linkedin: "https://www.linkedin.com/in/sahil-roy-0b8233293/",
-  github: "https://github.com/deserthunter7",
+  github: "https://github.com/SahilRoy-QA",
 };

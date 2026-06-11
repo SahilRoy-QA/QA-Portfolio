@@ -22,10 +22,10 @@
 
 /* Logo */
 .navbar__logo {
-  width: 120px;
+  width: 300px;
   height: 42px;
-  border: 2px solid var(--cyan);
-  border-radius: var(--radius-sm);
+  /* border: 2px solid var(--cyan);
+  border-radius: var(--radius-sm); */
   display: flex;
   align-items: center;
   justify-content: center;
