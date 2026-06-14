@@ -1,35 +1,163 @@
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 14px;
+/* ===========================
+   SKILLS CAROUSEL
+=========================== */
+
+.skills-carousel-container {
+  margin-top: 3rem;
+  padding-bottom: 4rem;
+  overflow: hidden; /* prevents slide overflow/jump */
 }
+
+/* ===========================
+   SWIPER FIX
+=========================== */
+
+.swiper-slide {
+  height: auto !important;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* IMPORTANT FIX (prevents top clipping) */
+}
+
+/* ===========================
+   SKILL CARD
+=========================== */
 
 .skill-card {
+  width: 100%;
+  height: 170px;
+
+  padding: 28px 18px 22px; /* extra top breathing space FIX */
+
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  gap: 12px;
-  padding: 18px 16px;
-  background: var(--bg-surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  cursor: default;
+  gap: 14px;
+
+  box-sizing: border-box;
+
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 28px;
+
+  cursor: pointer;
+
   transition:
-    border-color 0.2s,
-    background 0.2s,
-    transform 0.2s;
-}
-.skill-card:hover {
-  border-color: color-mix(in srgb, var(--card-accent) 60%, transparent);
-  background: var(--bg-card);
-  transform: translateY(-2px);
+    transform 0.4s ease,
+    box-shadow 0.4s ease,
+    border-color 0.4s ease,
+    background 0.4s ease;
+
+  will-change: transform;
+  overflow: visible; /* prevents icon cut */
 }
 
-.skill-card__icon {
-  font-size: 22px;
-  flex-shrink: 0;
+/* ===========================
+   HOVER EFFECT
+=========================== */
+
+.skill-card:hover {
+  transform: translateY(-8px) scale(1.03);
+
+  border-color: color-mix(in srgb, var(--card-accent) 60%, transparent);
+
+  background: rgba(255, 255, 255, 0.05);
+
+  box-shadow:
+    0 0 25px color-mix(in srgb, var(--card-accent) 40%, transparent),
+    0 15px 40px rgba(0, 0, 0, 0.4);
 }
+
+/* ===========================
+   ICON
+=========================== */
+
+.skill-card__icon {
+  font-size: 3rem;
+  line-height: 1;
+  margin-top: 4px; /* IMPORTANT FIX for top overlap */
+
+  transition:
+    transform 0.4s ease,
+    filter 0.4s ease;
+}
+
+.skill-card:hover .skill-card__icon {
+  transform: scale(1.15) rotate(6deg);
+  filter: drop-shadow(
+    0 0 15px color-mix(in srgb, var(--card-accent) 70%, white)
+  );
+}
+
+/* ===========================
+   LABEL
+=========================== */
+
 .skill-card__label {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
   color: #cbd5e1;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* ===========================
+   SWIPER PAGINATION
+=========================== */
+
+.swiper-pagination {
+  bottom: 0 !important;
+}
+
+.swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+
+  background: rgba(255, 255, 255, 0.25);
+  opacity: 1;
+
+  transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+  background: #00e5ff;
+  transform: scale(1.3);
+  box-shadow: 0 0 15px rgba(0, 229, 255, 0.8);
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media (max-width: 768px) {
+  .skill-card {
+    height: 150px;
+    padding: 20px 14px;
+  }
+
+  .skill-card__icon {
+    font-size: 2.4rem;
+  }
+
+  .skill-card__label {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .skill-card {
+    height: 140px;
+    padding: 18px 12px;
+  }
+
+  .skill-card__icon {
+    font-size: 2rem;
+  }
+
+  .skill-card__label {
+    font-size: 12px;
+  }
 }

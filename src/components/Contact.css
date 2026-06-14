@@ -33,6 +33,10 @@
   text-decoration: none;
   transition: color 0.2s;
 }
-.social-link:hover { color: var(--cyan); }
+.social-link:hover {
+  color: var(--cyan);
+}
 
-.contact__dot { color: var(--text-muted); }
+.contact__dot {
+  color: var(--text-muted);
+}

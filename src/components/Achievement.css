@@ -2,32 +2,80 @@
   display: flex;
   align-items: flex-start;
   gap: 18px;
+
   background: linear-gradient(
     135deg,
-    rgba(251, 191, 36, 0.08),
-    rgba(251, 191, 36, 0.03)
+    rgba(251, 191, 36, 0.1),
+    rgba(251, 191, 36, 0.04)
   );
+
   border: 1px solid rgba(251, 191, 36, 0.25);
   border-radius: var(--radius-md);
+
   padding: 22px 24px;
   margin-bottom: 16px;
+
+  /* important for GSAP smoothness */
+  will-change: transform, opacity;
+
+  /* subtle interaction */
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
 }
 
+/* hover polish */
+.achievement:hover {
+  transform: translateY(-6px);
+  border-color: rgba(251, 191, 36, 0.45);
+  box-shadow: 0 12px 28px rgba(251, 191, 36, 0.08);
+}
+
+/* ICON */
 .achievement__icon {
   font-size: 28px;
   flex-shrink: 0;
   margin-top: 2px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* smooth GSAP + hover sync */
+  transition: transform 0.3s ease;
 }
 
+/* icon reacts on hover */
+.achievement:hover .achievement__icon {
+  transform: rotate(12deg) scale(1.1);
+}
+
+/* BODY wrapper (matches JSX structure) */
+.achievement__body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* TITLE */
 .achievement__title {
   font-size: 15px;
   font-weight: 700;
   color: #fbbf24;
-  margin-bottom: 6px;
+  margin: 0; /* important: remove default <p> spacing */
+  letter-spacing: 0.2px;
 }
 
+/* DESCRIPTION */
 .achievement__desc {
   font-size: 14px;
   color: var(--text-secondary);
   line-height: 1.65;
+  margin: 0; /* important for clean GSAP animation */
+}
+
+/* optional: subtle glow effect on hover */
+.achievement:hover .achievement__title {
+  text-shadow: 0 0 10px rgba(251, 191, 36, 0.25);
 }

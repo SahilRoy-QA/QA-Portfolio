@@ -1,19 +1,98 @@
+/* =========================
+   LIST CONTAINER
+========================= */
 .exp-list {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 18px;
+
+  position: relative;
 }
 
+/* GSAP wrapper safety */
+.exp-list > div {
+  border-radius: 16px;
+  will-change: transform, opacity;
+  transform-origin: center;
+}
+
+/* =========================
+   🍎 APPLE GLASS CARD
+========================= */
 .exp-card {
-  background: var(--bg-surface);
-  border: 1px solid var(--border);
-  border-left: 3px solid var(--cyan);
-  border-radius: var(--radius-md);
-  padding: 24px 28px;
-  transition: background 0.2s;
-}
-.exp-card:hover { background: var(--bg-card); }
+  position: relative;
+  overflow: hidden;
 
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(16px);
+
+  border-radius: 16px;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+  padding: 24px 28px;
+
+  transition:
+    transform 0.55s cubic-bezier(0.2, 0.9, 0.2, 1),
+    box-shadow 0.55s ease,
+    background 0.3s ease;
+
+  will-change: transform;
+}
+
+/* =========================
+   🌟 CURSOR LIGHT (Apple glow)
+========================= */
+.exp-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: radial-gradient(
+    600px circle at var(--x, 50%) var(--y, 50%),
+    color-mix(in srgb, var(--cyan, #4fd1c5) 25%, transparent),
+    transparent 45%
+  );
+
+  opacity: 0;
+  transition: opacity 0.25s ease;
+
+  pointer-events: none;
+}
+
+.exp-card:hover::before {
+  opacity: 1;
+}
+
+/* =========================
+   🚀 HOVER (Apple lift)
+========================= */
+.exp-card:hover {
+  transform: translateY(-12px) scale(1.06);
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.45),
+    0 0 40px rgba(79, 209, 197, 0.12);
+
+  z-index: 10;
+}
+
+/* =========================
+   🎯 FOCUS MODE (Apple UX)
+========================= */
+.exp-list:hover .exp-card:not(:hover) {
+  opacity: 0.35;
+  transform: scale(0.96);
+  filter: blur(0.3px);
+}
+
+/* =========================
+   HEADER
+========================= */
 .exp-card__header {
   display: flex;
   align-items: flex-start;
@@ -23,31 +102,74 @@
   margin-bottom: 16px;
 }
 
-.exp-card__role    { font-size: 17px; font-weight: 700; color: var(--text-primary); }
-.exp-card__company { font-size: 14px; color: var(--cyan); font-weight: 500; margin-top: 2px; }
-.exp-card__period  {
+.exp-card__role {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 0.2px;
+}
+
+.exp-card__company {
+  font-size: 14px;
+  color: var(--cyan);
+  font-weight: 500;
+  margin-top: 2px;
+  opacity: 0.9;
+}
+
+.exp-card__period {
   font-size: 12px;
   color: var(--text-muted);
+
   white-space: nowrap;
-  background: rgba(255,255,255,0.05);
+  background: rgba(255, 255, 255, 0.05);
+
   padding: 4px 10px;
   border-radius: 20px;
   border: 1px solid var(--border);
 }
 
-.exp-card__bullets { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-.exp-card__bullet  {
+/* =========================
+   BULLETS
+========================= */
+.exp-card__bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.exp-card__bullet {
   font-size: 14px;
-  color: var(--text-secondary);
+  color: var(--text-primary);
   line-height: 1.65;
   padding-left: 16px;
   position: relative;
+  opacity: 1;
 }
+
+/* bullet arrow */
 .exp-card__bullet::before {
   content: "▸";
   position: absolute;
   left: 0;
-  color: var(--cyan);
-  font-size: 10px;
   top: 4px;
+  font-size: 10px;
+  color: var(--cyan);
+}
+
+/* =========================
+   GSAP SAFETY
+========================= */
+.exp-list > div {
+  transform: translateZ(0);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  .exp-card:hover {
+    transform: translateY(-8px) scale(1.03);
+  }
 }

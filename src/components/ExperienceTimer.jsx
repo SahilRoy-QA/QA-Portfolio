@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 
 const ExperienceTimer = () => {
-  // Start date: February 1st, 2025
-  const startDate = new Date(2025, 1, 1);
+  // Start date: February 2nd, 2025
+  const startDate = new Date(2025, 1, 2);
 
   const [experience, setExperience] = useState({ years: 0, months: 0 });
 
@@ -29,7 +29,7 @@ const ExperienceTimer = () => {
     alignItems: "center",
     justifyContent: "center",
     // CHANGED: Reduced side padding from 26px to 12px to trim the width
-    padding: "8px 12px",
+    padding: "6px 12px",
     borderRadius: "4px",
     fontSize: "13px", // Slightly smaller text to match the tighter padding
     fontWeight: "700",
