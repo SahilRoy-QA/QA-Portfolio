@@ -1,257 +1,312 @@
 /* ===========================
-   HERO SECTION
+   HERO SECTION (cinematic base)
 =========================== */
-
 .hero {
   min-height: 100vh;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 56px;
-  padding: 100px 64px 72px;
+
+  gap: 64px;
+
+  padding: 110px 72px 80px;
+
   flex-wrap: wrap;
+
   position: relative;
   overflow: hidden;
+
+  will-change: transform, opacity;
+}
+
+/* ambient cinematic background */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(0, 229, 255, 0.09),
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 80% 60%,
+      rgba(124, 58, 237, 0.08),
+      transparent 50%
+    );
+
+  z-index: 0;
+  pointer-events: none;
 }
 
 /* ===========================
    LEFT SECTION
 =========================== */
-
 .hero__left {
-  flex: 1 1 360px;
-  max-width: 540px;
+  flex: 1 1 380px;
+  max-width: 560px;
+
   z-index: 2;
 }
 
+/* NAME (GSAP-ready clean animation) */
 .hero__name {
-  font-size: clamp(3rem, 7vw, 5rem);
+  font-size: clamp(3.2rem, 7vw, 5.4rem);
   font-weight: 900;
+
   color: var(--text-primary);
+
   letter-spacing: -2px;
   line-height: 1.05;
+
   margin-bottom: 28px;
+
+  will-change: transform, opacity;
 }
 
+/* TITLE */
 .hero__title {
-  font-size: 18px;
+  font-size: 14px;
+  letter-spacing: 4px;
+
   color: var(--text-accent);
-  font-weight: 500;
+  font-weight: 600;
+
   margin-bottom: 28px;
+
   text-transform: uppercase;
-  letter-spacing: 3px;
+
+  opacity: 0.9;
 }
 
 /* ===========================
-   BIO CARD
+   BIO (glass upgraded)
 =========================== */
-
 .hero__bio {
-  background: var(--bg-surface);
-  border: 1px solid var(--border-cyan);
-  border-radius: var(--radius-md);
-  padding: 20px;
+  background: rgba(255, 255, 255, 0.03);
+
+  border: 1px solid rgba(0, 229, 255, 0.18);
+
+  border-radius: 16px;
+
+  padding: 22px;
+
   margin-bottom: 32px;
-  backdrop-filter: blur(20px);
+
+  backdrop-filter: blur(22px);
 
   box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.35),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+    0 25px 70px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+
+  transition: transform 0.35s ease;
+}
+
+.hero__bio:hover {
+  transform: translateY(-4px);
 }
 
 .hero__bio-text {
   font-size: 14px;
   color: var(--text-secondary);
-  line-height: 1.7;
+  line-height: 1.75;
 }
 
 /* ===========================
-   CTA BUTTONS
+   CTA ROW
 =========================== */
-
 .hero__cta-row {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 24px;
+  gap: 18px;
   flex-wrap: wrap;
   margin-top: 40px;
 }
 
+/* ===========================
+   BUTTON BASE (clean + stable)
+=========================== */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
   padding: 12px 28px;
+
   border-radius: 999px;
+
   font-size: 14px;
   font-weight: 700;
+
   letter-spacing: 0.4px;
+
   text-decoration: none;
   cursor: pointer;
 
+  position: relative;
+
   transition:
-    transform 0.3s,
-    box-shadow 0.3s,
-    opacity 0.3s;
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .btn:hover {
   transform: translateY(-4px);
 }
 
+/* ===========================
+   UNIFIED PULSE SYSTEM (FIXED)
+=========================== */
+@keyframes pulseCore {
+  0% {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 10px 25px rgba(0, 229, 255, 0.12);
+  }
+
+  50% {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow:
+      0 18px 45px rgba(0, 229, 255, 0.25),
+      0 0 20px rgba(0, 229, 255, 0.15);
+  }
+
+  100% {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 10px 25px rgba(0, 229, 255, 0.12);
+  }
+}
+
+/* PRIMARY CTA */
 .btn--primary {
   background: var(--cyan);
   color: #020917;
 
-  box-shadow: 0 0 20px rgba(0, 229, 255, 0.3);
+  box-shadow: 0 0 25px rgba(0, 229, 255, 0.25);
+
+  animation: pulseCore 2.8s ease-in-out infinite;
 }
 
+/* OUTLINE CTA */
 .btn--outline {
   background: transparent;
+
   color: var(--text-primary);
-  border: 1.5px solid #2d3f56;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  animation: pulseCore 4.8s ease-in-out infinite;
+
+  animation-delay: 0.4s;
 }
 
-/* ===========================
-   PLAY BUTTON
+/* /* ===========================
+   PLAY BUTTON (FIXED + MORE VISIBLE)
+
+   
 =========================== */
-
-.play-btn {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  background: rgba(0, 229, 255, 0.1);
-  border: 2px solid #00e5ff;
-
-  box-shadow:
-    0 0 20px rgba(0, 229, 255, 0.4),
-    0 0 40px rgba(0, 229, 255, 0.2);
-
-  backdrop-filter: blur(15px);
-
-  transition: all 0.4s ease;
-  animation: pulsePlay 2.5s infinite;
-}
-
-.play-btn:hover {
-  transform: scale(1.1);
-
-  box-shadow:
-    0 0 35px rgba(0, 229, 255, 0.7),
-    0 0 70px rgba(0, 229, 255, 0.35);
-}
-
-.play-icon {
-  width: 0;
-  height: 0;
-  margin-left: 4px;
-
-  border-top: 12px solid transparent;
-  border-bottom: 12px solid transparent;
-  border-left: 20px solid #00e5ff;
-}
 
 /* ===========================
    RIGHT SECTION
 =========================== */
-
 .hero__right {
-  flex: 1 1 280px;
+  flex: 1 1 300px;
+
   display: flex;
   justify-content: center;
   align-items: center;
+
   position: relative;
 }
 
 /* ===========================
    AVATAR WRAPPER
 =========================== */
-
 .hero__avatar-wrapper {
   position: relative;
+
   width: 420px;
   height: 520px;
 
   display: flex;
   justify-content: center;
   align-items: center;
+
+  will-change: transform;
 }
 
 /* ===========================
-   AVATAR IMAGE
+   AVATAR IMAGE (clean cinematic)
 =========================== */
-
 .hero__avatar {
   width: 320px;
   height: 420px;
 
   object-fit: cover;
-  object-position: center top;
 
-  border-radius: 32px;
+  border-radius: 28px;
 
-  position: relative;
   z-index: 3;
 
   border: 1px solid rgba(255, 255, 255, 0.08);
 
   box-shadow:
     0 0 60px rgba(0, 229, 255, 0.18),
-    0 0 120px rgba(124, 58, 237, 0.15);
+    0 0 120px rgba(124, 58, 237, 0.12);
 
   opacity: 0;
-  transform: scale(1.12);
-  filter: blur(15px);
+
+  transform: scale(1.08);
+
+  filter: blur(10px);
 
   animation:
-    avatarReveal 1.8s ease forwards,
-    floatAvatar 6s ease-in-out infinite 2s;
+    avatarReveal 1.6s ease forwards,
+    floatAvatar 6s ease-in-out infinite 1.8s;
 }
 
 /* ===========================
-   HEXAGON FRAME
+   HEX FRAME
 =========================== */
-
 .avatar-hex {
   position: absolute;
   width: 500px;
   height: 500px;
+
   z-index: 1;
 
-  animation: rotateHex 18s linear infinite;
+  animation: rotateHex 24s linear infinite;
 }
 
 .avatar-hex polygon {
   fill: none;
   stroke: #00e5ff;
-  stroke-width: 2;
+  stroke-width: 1.5;
 
   stroke-dasharray: 650;
   stroke-dashoffset: 650;
 
-  filter: drop-shadow(0 0 10px rgba(0, 229, 255, 0.7))
-    drop-shadow(0 0 30px rgba(0, 229, 255, 0.3));
+  filter: drop-shadow(0 0 10px rgba(0, 229, 255, 0.5));
 
-  animation: drawHex 3s ease forwards;
+  animation: drawHex 2.6s ease forwards;
 }
 
 /* ===========================
-   LOADING SCAN
+   LOADER SCAN
 =========================== */
-
 .avatar-loader {
   position: absolute;
+
   width: 360px;
   height: 460px;
-  border-radius: 36px;
+
+  border-radius: 32px;
 
   overflow: hidden;
+
   z-index: 4;
 }
 
@@ -266,36 +321,22 @@
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(0, 229, 255, 0.45),
+    rgba(0, 229, 255, 0.35),
     transparent
   );
 
   animation: scanLoader 1.8s ease forwards;
 }
 
-@keyframes pulsePlay {
-  0% {
-    box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
-  }
-
-  50% {
-    box-shadow:
-      0 0 40px rgba(0, 229, 255, 0.8),
-      0 0 80px rgba(0, 229, 255, 0.3);
-  }
-
-  100% {
-    box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
-  }
-}
-
+/* ===========================
+   ANIMATIONS (optimized)
+=========================== */
 @keyframes avatarReveal {
   from {
     opacity: 0;
-    transform: scale(1.12);
-    filter: blur(15px);
+    transform: scale(1.08);
+    filter: blur(10px);
   }
-
   to {
     opacity: 1;
     transform: scale(1);
@@ -304,16 +345,12 @@
 }
 
 @keyframes floatAvatar {
-  0% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-18px);
-  }
-
+  0%,
   100% {
     transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
   }
 }
 
@@ -321,7 +358,6 @@
   from {
     left: -40%;
   }
-
   to {
     left: 140%;
   }
@@ -331,7 +367,6 @@
   from {
     transform: rotate(0deg);
   }
-
   to {
     transform: rotate(360deg);
   }
@@ -341,7 +376,6 @@
   from {
     stroke-dashoffset: 650;
   }
-
   to {
     stroke-dashoffset: 0;
   }
@@ -350,7 +384,6 @@
 /* ===========================
    RESPONSIVE
 =========================== */
-
 @media (max-width: 768px) {
   .hero {
     padding: 96px 24px 56px;
@@ -382,7 +415,7 @@
   }
 
   .hero__cta-row {
-    gap: 16px;
+    gap: 14px;
   }
 
   .play-btn {

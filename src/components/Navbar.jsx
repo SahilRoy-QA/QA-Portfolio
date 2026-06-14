@@ -15,17 +15,28 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  /* lock body scroll when menu open */
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+  }, [menuOpen]);
+
   const handleNav = (link) => {
     setActive(link);
     setMenuOpen(false);
+
     const el = document.getElementById(link.toLowerCase());
-    el?.scrollIntoView({ behavior: "smooth" });
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   };
 
   return (
-    <nav className={`navbar ${scrolled ? "navbar--scrolled" : ""}`}>
+    <nav
+      className={`navbar ${scrolled ? "navbar--scrolled" : ""}`}
+      aria-label="Main Navigation"
+    >
       {/* Logo */}
-      <div className="navbar__logo" aria-label="Sahil Roy">
+      <div className="navbar__logo" aria-label="Home">
         <ExperienceTimer />
       </div>
 
@@ -34,8 +45,12 @@ export default function Navbar() {
         {NAV_LINKS.map((link) => (
           <li key={link}>
             <button
-              className={`navbar__link ${active === link ? "navbar__link--active" : ""}`}
+              type="button"
+              className={`navbar__link ${
+                active === link ? "navbar__link--active" : ""
+              }`}
               onClick={() => handleNav(link)}
+              aria-current={active === link ? "page" : undefined}
             >
               {link.toUpperCase()}
             </button>
@@ -45,9 +60,11 @@ export default function Navbar() {
 
       {/* Hamburger (mobile) */}
       <button
+        type="button"
         className={`navbar__hamburger ${menuOpen ? "open" : ""}`}
         onClick={() => setMenuOpen((p) => !p)}
         aria-label="Toggle menu"
+        aria-expanded={menuOpen}
       >
         <span />
         <span />
@@ -60,10 +77,13 @@ export default function Navbar() {
           {NAV_LINKS.map((link) => (
             <button
               key={link}
-              className={`navbar__drawer-link ${active === link ? "active" : ""}`}
+              type="button"
+              className={`navbar__drawer-link ${
+                active === link ? "active" : ""
+              }`}
               onClick={() => handleNav(link)}
             >
-              {link}
+              {link.toUpperCase()}
             </button>
           ))}
         </div>
