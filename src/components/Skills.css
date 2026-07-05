@@ -44,6 +44,7 @@
   border-radius: 28px;
 
   cursor: pointer;
+   
 
   transition:
     transform 0.4s ease,
@@ -52,8 +53,10 @@
     background 0.4s ease;
 
   will-change: transform;
-  overflow: visible; /* prevents icon cut */
+  /* overflow: visible; /* prevents icon cut */ */
+   z-index: 999;
 }
+
 
 /* ===========================
    HOVER EFFECT
