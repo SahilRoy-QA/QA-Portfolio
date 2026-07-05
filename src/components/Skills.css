@@ -53,7 +53,7 @@
     background 0.4s ease;
 
   will-change: transform;
-  /* overflow: visible; /* prevents icon cut */ */
+  /* overflow: visible; /* prevents icon cut */ 
    z-index: 999;
 }
 
