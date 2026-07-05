@@ -117,6 +117,14 @@ export const PROJECTS = [
     stack: ["Data Validation", "Performance Testing", "Cross-browser"],
     accent: "#fbbf24",
   },
+  {
+    title: "TxBi",
+    tag: "Module",
+    description:
+      "Tested funtionalities of TxBI, a TEEXMA module that turns raw laboratory and technical data into live visual analytics, KPIs, and quality charts to help executives make decisions.",
+    stack: ["Data Validation", "Visual Representation", "Cross-browser","UI Testing"],
+    accent: "#fbbf45",
+  },
 ];
 
 export const EDUCATION = [
