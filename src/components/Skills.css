@@ -17,6 +17,8 @@
   display: flex;
   justify-content: center;
   align-items: center; /* IMPORTANT FIX (prevents top clipping) */
+   overflow: visible;
+    padding: 20px 0;
 }
 
 /* ===========================
