@@ -123,7 +123,7 @@ export const PROJECTS = [
     description:
       "Tested funtionalities of TxBI, a TEEXMA module that turns raw laboratory and technical data into live visual analytics, KPIs, and quality charts to help executives make decisions.",
     stack: ["Data Validation", "Visual Representation", "Cross-browser","UI Testing"],
-    accent: "#fbbf45",
+    accent: "#45fbe9",
   },
 ];
 
