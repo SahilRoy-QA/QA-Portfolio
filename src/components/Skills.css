@@ -53,8 +53,7 @@
     background 0.4s ease;
 
   will-change: transform;
-  /* overflow: visible; /* prevents icon cut */ 
-   z-index: 999;
+  
 }
 
 
@@ -68,6 +67,8 @@
   border-color: color-mix(in srgb, var(--card-accent) 60%, transparent);
 
   background: rgba(255, 255, 255, 0.05);
+   /* overflow: visible; /* prevents icon cut */ 
+   z-index: 999;
 
   box-shadow:
     0 0 25px color-mix(in srgb, var(--card-accent) 40%, transparent),
